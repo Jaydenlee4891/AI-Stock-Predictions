@@ -25,3 +25,5 @@ class TradingBotGUI:
     self.form_frame = tk.Frame(root)
     self.form_frame.pack(pady=10)
     
+    self.symbol_label = tk.Label(self.form_frame, text="Symbol:")
+    self.symbol_label.grid(row=0, column=0)
