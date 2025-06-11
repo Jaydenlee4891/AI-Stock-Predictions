@@ -24,6 +24,17 @@ class TradingBotGUI:
     
     self.form_frame = tk.Frame(root)
     self.form_frame.pack(pady=10)
-    
-    self.symbol_label = tk.Label(self.form_frame, text="Symbol:")
-    self.symbol_label.grid(row=0, column=0)
+
+    #Form to add a new equity to out trading bot
+    tk.Label(self.form_frame, text="Symbol:").grid(row=0, column=0)
+    self.symbol_entry = tk.Entry(self.form_frame)
+    self.symbol_entry.grid(row=0, column=1)
+
+    tk.Label(self.form_frame, text="Symbol:").grid(row=0, column=2)
+    self.symbol_entry = tk.Entry(self.form_frame)
+    self.symbol_entry.grid(row=1, column=3)
+
+    tk.Label(self.form_frame, text="Symbol:").grid(row=0, column=4)
+    self.drawdown_entry = tk.Entry(self.form_frame)
+    self.drawdown_entry_grid(row=1,column=5)
+
