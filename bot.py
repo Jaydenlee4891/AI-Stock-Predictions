@@ -14,3 +14,14 @@ def fetch_mock_api(symbol):
 
 def mock_chatgpt_response(message):
   return f"Mock response to : {message}"
+
+class TradingBotGUI:
+  def __init__(self, root):
+    self.root = root
+    self.root.title("AI Trading Bot")
+    self.equities = self.load_equities()
+    self.system_running = False
+    
+    self.form_frame = tk.Frame(root)
+    self.form_frame.pack(pady=10)
+    
