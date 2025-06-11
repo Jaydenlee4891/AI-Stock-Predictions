@@ -12,4 +12,5 @@ def fetch_mock_api(symbol):
     "price" : 100
   }
 
-def mock_chatgpt_response
+def mock_chatgpt_response(message):
+  return f"Mock response to : {message}"
