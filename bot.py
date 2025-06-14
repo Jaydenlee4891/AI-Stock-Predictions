@@ -54,4 +54,13 @@ class TradingBotGUI:
 
     self.remove_button = tk.Button(root, text="Remove Selected Equity", command=self.remove_selected_equity)
     self.remove_button.pack(pady=5)
-    
+
+    #AI comp
+    self.chat_frame = tk.Frame(root)
+    self.chat_frame.pack(pady=10)
+
+    self.chat_input = tk.Entry(self.chat_frame, width=50)
+    self.chat_input.grid(row=0, column=0, padx=5)
+
+    self.send_button= tk.Button(self.chat_frame, text-"send", command=self.send_message)
+    self.send_button.grid(row=0, column=1)
