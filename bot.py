@@ -80,4 +80,13 @@ class TradingBotGUI:
     symbol = self.symbol_entry.get().upper()
     levels = self.levels_untry.get()
     drawdown = self.drawdown_entry.get()
-    
+
+      if not symbol or not levels.isdigit() or not drawdown.replace('-','',1).isdigit():
+        messagebox.showerror("Error", "Invalid Input")
+        return
+
+      levels = int(levels)
+      drawdown = float(drawdown)/100
+      entry_price = fetch_mock_api(symbol)['price']
+
+      level_prices= {i+1 : round(entry_price *(1-drawdown*(i+1) ,2) for i in range(levels))}
