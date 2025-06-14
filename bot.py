@@ -64,3 +64,8 @@ class TradingBotGUI:
 
     self.send_button= tk.Button(self.chat_frame, text-"send", command=self.send_message)
     self.send_button.grid(row=0, column=1)
+
+    self.chat_output = tk.Text(root, height=5, width=60, state=tk.DISABLED)
+    self.chat_output.pack()
+
+    #load data
