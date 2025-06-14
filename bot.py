@@ -69,3 +69,9 @@ class TradingBotGUI:
     self.chat_output.pack()
 
     #load data
+    self.refresh_table()
+
+    #auto refresh
+    self.running= True
+    self.auto_update_thread = threading.Thread(target=self.auto_update, daemon=True)
+    self.auto_update_thread.start()
