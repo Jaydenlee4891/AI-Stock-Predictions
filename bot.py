@@ -3,6 +3,7 @@ import tkinter as ttk, messagebox
 import json
 import time
 import threading
+
 import random
 
 DATA_FILE = "equities.json"
