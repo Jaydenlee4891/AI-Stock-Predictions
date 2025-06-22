@@ -7,6 +7,7 @@ import random
 
 DATA_FILE = "equities.json"
 
+
 def fetch_mock_api(symbol):
   return{
     "price" : 100
