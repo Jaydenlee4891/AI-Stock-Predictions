@@ -90,3 +90,11 @@ class TradingBotGUI:
       entry_price = fetch_mock_api(symbol)['price']
 
       level_prices= {i+1 : round(entry_price *(1-drawdown*(i+1) ,2) for i in range(levels))}
+
+      self.equities[symbol] = {
+        "position":0,
+        "entry_price":entry_price,
+        "levels":level_prices,
+        "status":"off"
+      }
+        
