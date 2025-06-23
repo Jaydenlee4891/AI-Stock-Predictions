@@ -123,5 +123,17 @@ class TradingBotGUI:
       symbol = self.tree.item(item)['values'][0]
       if symbol in self.equities:
         del self.equities[symbol]
+        
     self.save_equities()
     self.refresh_table()
+
+  def send_message(self):
+    message = self.chat_input.get()
+    if not message:
+      return
+    response = mock_chatgpt_response(message)
+
+    self.chat_output.config(state=tk.Normal)
+    se;f.chat_output.insert(tk.END, f"You:{message}\n{response}\n\n")
+    self.chat_output.config(state=tk.DISABLED)
+    self.chat_input.delete(0,tk.END)
