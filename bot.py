@@ -159,4 +159,13 @@ class TradingBotGUI:
   def save_equities(self):
     with open(DATA_FILE, 'w') as f:
       json.dump(self.equities,f)
+
+  def load_equities(self):
+    try:
+      with open(DATA_FILE, 'r') as f:
+        return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+      return{}
+
+
   
