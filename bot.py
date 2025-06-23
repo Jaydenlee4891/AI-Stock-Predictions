@@ -49,7 +49,7 @@ class TradingBotGUI:
     self.tree.pack(pady=10)
 
     #control 
-    self.toggle_system_button = tk.Button(root,text="Toggle Selected System", command=self.toggle_system)
+    self.toggle_system_button = tk.Button(root,text="Toggle Selected System", command=self.toggle_selected_system)
     self.toggle_system_button.pack(pady=5)
 
     self.remove_button = tk.Button(root, text="Remove Selected Equity", command=self.remove_selected_equity)
