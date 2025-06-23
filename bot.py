@@ -150,3 +150,9 @@ class TradingBotGUI:
         str(data['levels']),
         data['status']
       ))
+  def auto_update(self):
+    while self.running:
+      time.sleep(5)
+      self.update_prices()
+
+  
