@@ -137,3 +137,16 @@ class TradingBotGUI:
     se;f.chat_output.insert(tk.END, f"You:{message}\n{response}\n\n")
     self.chat_output.config(state=tk.DISABLED)
     self.chat_input.delete(0,tk.END)
+
+  def refresh_table(self):
+    for row in self.tree.get_children():
+      self.tree.delete(row)
+
+    for symbol, data in self.equities.itmes():
+      self.tree.insert("","end",values=(
+        symbol,
+        data['pposition'],
+        data['entry_price'],
+        str(data['levels']),
+        data['status']
+      ))
