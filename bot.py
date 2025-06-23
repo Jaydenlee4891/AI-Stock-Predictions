@@ -119,4 +119,9 @@ class TradingBotGUI:
       messagebox.showwarning("Warning", "No equity Selected")
       return
       
-    for item in slected_items
+    for item in selected_items:
+      symbol = self.tree.item(item)['values'][0]
+      if symbol in self.equities:
+        del self.equities[symbol]
+    self.save_equities()
+    self.refresh_table()
