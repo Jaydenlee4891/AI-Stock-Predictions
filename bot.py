@@ -32,11 +32,11 @@ class TradingBotGUI:
 
     tk.Label(self.form_frame, text="Symbol:").grid(row=0, column=2)
     self.symbol_entry = tk.Entry(self.form_frame)
-    self.symbol_entry.grid(row=1, column=3)
+    self.symbol_entry.grid(row=0, column=3)
 
     tk.Label(self.form_frame, text="Symbol:").grid(row=0, column=4)
     self.drawdown_entry = tk.Entry(self.form_frame)
-    self.drawdown_entry_grid(row=1,column=5)
+    self.drawdown_entry_grid(row=0,column=5)
 
     self.add_button = tk.Button(self.form_frame, text ="Add Equity", command=self.add_equity)
     self.add_button(row=0, column=6)
