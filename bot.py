@@ -99,5 +99,24 @@ class TradingBotGUI:
       }
       self.save_equities()
       self.refresh_table()
+    
+  def toggle_selected_system(self):
+    selected_items=self.tree.selection()
+    if not selected_items:
+      messagebox.showwarning("Warning","No Equity is selected")
+      return
+
+    for item in selected_items:
+      symbol=self.tree.item(item)['values'][0]
+      self.equities[symbol]['status'] = "on" if self.equities[symbol]['status'] == "off" else "off"
+
+    self.save_equities()
+    self.refresh_table()
+
+  def remove_selected_equity(self):
+    selected_items = self.tree.selection()
+    if not selected_items:
+      messagebox.showwarning("Warning", "No equity Selected")
+      return
       
-        
+    for item in slected_items
