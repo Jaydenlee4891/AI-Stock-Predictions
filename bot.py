@@ -78,7 +78,7 @@ class TradingBotGUI:
 
   def add_equity(self):
     symbol = self.symbol_entry.get().upper()
-    levels = self.levels_untry.get()
+    levels = self.levels_entry.get()
     drawdown = self.drawdown_entry.get()
 
       if not symbol or not levels.isdigit() or not drawdown.replace('-','',1).isdigit():
