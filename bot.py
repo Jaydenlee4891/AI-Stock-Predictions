@@ -138,6 +138,10 @@ class TradingBotGUI:
     self.chat_output.config(state=tk.DISABLED)
     self.chat_input.delete(0,tk.END)
 
+  def check_exsisting_orders(self,symbol,price):
+    try:
+      
+
   def refresh_table(self):
     for row in self.tree.get_children():
       self.tree.delete(row)
