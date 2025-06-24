@@ -145,6 +145,14 @@ class TradingBotGUI:
     self.chat_output.config(state=tk.DISABLED)
     self.chat_input.delete(0,tk.END)
 
+  def fetch_alpaca_data(self,symbol):
+    try:
+      barset=api.het_latest_trade(symbol)
+      return{"price":barset.price)
+    except Exception as e:
+      return {"price":-1}
+        
+  
   def check_exsisting_orders(self,symbol,price):
     try:
       orders = api.list_orders(status = 'open' , symbols=symbol)
