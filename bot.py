@@ -151,7 +151,6 @@ class TradingBotGUI:
       return{"price":barset.price)
     except Exception as e:
       return {"price":-1}
-        
   
   def check_exsisting_orders(self,symbol,price):
     try:
@@ -163,6 +162,14 @@ class TradingBotGUI:
       messagebox.showerror("API Error", f"Error checking orders{e}")
     return False
 
+  def get_max_entry_price(self, symbol):
+    try:
+      orders = api.list_orders(status="filled", symbol=symbol, limit=50)
+      prices = [float(order.filled_avg_price) for order in orders if order.filled_avg_price]
+      return max(prices) if prices else -1
+    except Exception as e:
+      messagebox.showerror("API Error", f"Error Fetching orders{e}")
+    return 0
   def refresh_table(self):
     for row in self.tree.get_children():
       self.tree.delete(row)
