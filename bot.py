@@ -4,12 +4,8 @@ import json
 import time
 import threading
 import random
-import alpaca_trade_api as tradeapi
 
 DATA_FILE = "equities.json"
-
-key = ""
-secret_key = ""
 
 def fetch_mock_api(symbol):
   return{
