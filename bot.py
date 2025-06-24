@@ -147,7 +147,13 @@ class TradingBotGUI:
 
   def check_exsisting_orders(self,symbol,price):
     try:
-      
+      orders = api.list_orders(status = 'open' , symbols=symbol)
+      for order in orders:
+        if float(order.limit_price)== price:
+          return True
+    except Exception as e:
+      messagebox.showerror("API Error", f"Error checking orders{e}")
+    return False
 
   def refresh_table(self):
     for row in self.tree.get_children():
