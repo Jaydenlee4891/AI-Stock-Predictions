@@ -103,6 +103,7 @@ class TradingBotGUI:
         "position":0,
         "entry_price":entry_price,
         "levels":level_prices,
+        "drawdown" : drawdown,
         "status":"off"
       }
       self.save_equities()
@@ -165,8 +166,8 @@ class TradingBotGUI:
 
   def get_max_entry_price(self, symbol):
     try:
-      orders = api.list_orders(status="filled", symbol=symbol, limit=50)
-      prices = [float(order.filled_avg_price) for order in orders if order.filled_avg_price]
+      orders = api.list_orders(status="filled", limit=50)
+      prices = [float(order.filled_avg_price) for order in orders if order.filled_avg_price and order.symbol == symbol]
       return max(prices) if prices else -1
     except Exception as e:
       messagebox.showerror("API Error", f"Error Fetching orders{e}")
