@@ -229,8 +229,9 @@ class TradingBotGUI:
         level_prices = {i+1:round(entry_price*(1-data['drawdown']*(i+2)),2) for i in range(len(data['levels']))}
         existing_levels = self.equities.get(symbol, {}).get('levels', {})
         for levels, price in level_prices.items():
-          if level in self.equities[symbol]['levels']:
-            self.place_order(symbol,price,level)
+          if level not in exsisting_levels and -level not in exsisting_levels:
+            exsisting_levels[level]=price
+            
       self.save_equities()
       self.refresh_table()
 
