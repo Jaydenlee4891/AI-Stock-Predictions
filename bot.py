@@ -206,6 +206,34 @@ class TradingBotGUI:
     self.save_equities()
     self.root.destroy()
 
+  def trade_system(self):
+    for symbol, data in self.equities.items():
+      if data['status'] == 'On'
+        position_exists = False
+        try:
+            position = api.get_position(symbol)
+            entry_price = self.get_max_entry_price(symbol)
+            position_exists = True
+        except Exception as e:
+          api.submit_order(
+            symbol = symbol,
+            qty = 1,
+            side="buy",
+            type = "market",
+            time_in_force="gtc"
+          )
+          messagebox.showinfo("Order Placed", f"Initial order placed for {symbol}")
+          time.sleep(2)
+          entry_price = self.get_max_entry_price(symbol)
+        print(entry_price)
+        level_prices = {i+1:round(entry_price*(1-data['drawdown']*(i+2)),2) for i in range(len(data['levels']))}
+        existing_levels = self.equities.get(symbol, {}).get('levels', {})
+        for levels, price in level_prices.items():
+          if level in self.equities[symbol]['levels']:
+            self.place_order(symbol,price,level)
+      self.save_equities()
+      self.refresh_table()
+
 if __name__ == '__main__' :
   root=tk.Tk()
   app = TradingBotGUI(root)
