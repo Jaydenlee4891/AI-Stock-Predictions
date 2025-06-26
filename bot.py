@@ -231,10 +231,18 @@ class TradingBotGUI:
         for levels, price in level_prices.items():
           if level not in exsisting_levels and -level not in exsisting_levels:
             exsisting_levels[level]=price
+        self.equities[symbol]['entry_price'] = entry_price
+        self.equities[symbol]['levels'] = exsisting_levels
+        self.equities[symbol]['position'] =1
+
+        for level, prices in level_prices.items():
+          if level in self.equities[symbol]['levels']:
+            self.place_order(symbol, price, level)
             
       self.save_equities()
       self.refresh_table()
-
+  else:
+      return
 if __name__ == '__main__' :
   root=tk.Tk()
   app = TradingBotGUI(root)
