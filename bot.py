@@ -243,6 +243,25 @@ class TradingBotGUI:
       self.refresh_table()
   else:
       return
+
+  def place_order(self,symbol,price,level):
+    if -level in self.equities[symbol]['levels'] or '-1' in self.equities[symbol]['level'].keys():
+      return
+    try:
+      api.submit_order(
+        symbol=symbol,
+        qty =1,
+        side='buy',
+        type='limit',
+        time_in_force='gtc',
+        limit_price=price
+      )
+      self.equities[symbol]['levels'][-level] = price
+      del self.equities[symbol]['levels'][level]
+      print(f"Placed order for {symbol}@{price}")
+    except Exception as e:
+      messagebox.showerror("Order Error", f"Error placing order {e}")
+
 if __name__ == '__main__' :
   root=tk.Tk()
   app = TradingBotGUI(root)
