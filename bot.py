@@ -7,7 +7,6 @@ import random
 import alpaca_trade_api as tradeapi
 
 
-
 DATA_FILE = "equities.json"
 
 key = "PKBOVFA2LQAB1QPTY5HZ"
