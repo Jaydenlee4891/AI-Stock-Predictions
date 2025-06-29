@@ -205,7 +205,7 @@ class TradingBotGUI:
     self.save_equities()
     self.root.destroy()
 
-  def trade_system(self):
+  def trade_systems(self):
     for symbol, data in self.equities.items():
       if data['status'] == 'On'
         position_exists = False
