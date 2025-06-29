@@ -187,7 +187,7 @@ class TradingBotGUI:
   def auto_update(self):
     while self.running:
       time.sleep(5)
-      self.update_prices()
+      self.trade_systems()
 
   def save_equities(self):
     with open(DATA_FILE, 'w') as f:
