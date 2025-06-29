@@ -244,7 +244,7 @@ class TradingBotGUI:
       return
 
   def place_order(self,symbol,price,level):
-    if -level in self.equities[symbol]['levels'] or '-1' in self.equities[symbol]['level'].keys():
+    if -level in self.equities[symbol]['levels'] or '-1' in self.equities[symbol]['levels'].keys():
       return
     try:
       api.submit_order(
