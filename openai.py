@@ -1,5 +1,19 @@
 import openai
 
+def fetch_portfolio():
+  positions = api.list_positions()
+  portfolio = []
+  for pos in positions:
+    portfolio.append({
+      'symbol' : pos.symbol,
+      'qty' : pos.qty,
+      'entry_price':pos.avg_entry_price,
+      'current_price':pos.current_price,
+      'unrealized_p1':pos.unrealized_p1,
+      'side':'long'
+    })
+  return portfolio
+
 def analyze_message(message):
   portfolio_data = fetch_portfolio()
   open_orders = fetch_open_orders()
