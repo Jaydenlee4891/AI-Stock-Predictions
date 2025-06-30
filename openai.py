@@ -1,11 +1,11 @@
 import openai
 import alpaca_trade_api as tradeapi
 
-DATA_FILE = "equities.json"
-
 key = ""
 secret_key=""
 BASE_URL="https://paper-api.alpaca.markets/"
+
+api=tradeapi.REST(key,secret_key,BASE_URL,api_version="v2")
 
 def fetch_portfolio():
   positions = api.list_positions()
