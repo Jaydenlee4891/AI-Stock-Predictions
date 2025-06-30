@@ -5,6 +5,7 @@ import time
 import threading
 import random
 import alpaca_trade_api as tradeapi
+import openai
 
 DATA_FILE = "equities.json"
 
