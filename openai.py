@@ -14,6 +14,18 @@ def fetch_portfolio():
     })
   return portfolio
 
+def fetch_open_orders():
+  orders = api.list_orders(status='open')
+  open_orders = []
+  for order in orders:
+    open_orders.append({
+      'symbol':order.symbol,
+      'qty':order.qty,
+      'limit_price':order.limit_price,
+      'side':'buy'
+    })
+  
+
 def analyze_message(message):
   portfolio_data = fetch_portfolio()
   open_orders = fetch_open_orders()
