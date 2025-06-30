@@ -45,7 +45,7 @@ def fetch_mock_api(symbol):
     "price" : 100
   }
 
-def mock_chatgpt_response(message):
+def chatgpt_response(message):
   portfolio_data = fetch_portfolio()
   open_orders = fetch_open_orders()
   pre_prompt = f"""
