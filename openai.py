@@ -55,3 +55,6 @@ def analyze_message(message):
     messages={{"role":"system", "content":pre_prompt}],
     api_key= ""
   )
+  return response['choices'][0]['message']['content']
+
+analysis = analyze_message("How is my portfolio doing?")
