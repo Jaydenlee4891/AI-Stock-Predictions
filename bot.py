@@ -14,6 +14,21 @@ BASE_URL="https://paper-api.alpaca.markets/"
 
 api = tradeapi.REST(key, secret_key, BASE_URL, api_version = "v2")
 
+def fetch_portfolio():
+  positions = api.list_positions()
+  portfolio =[]
+  for pos in positions:
+    portfolio.append({
+      'symbol':pos.symbol,
+      'qty':pos.qty,
+      'entry_price':pos.avg_entry_price,
+      'current_price':pos.current_price,
+      'unrealized_pl':pos.unrealized_p1,
+      'side': 'buy'
+    })
+  return portfolio
+      
+
 def fetch_mock_api(symbol):
   return{
     "price" : 100
