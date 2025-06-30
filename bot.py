@@ -186,7 +186,7 @@ class TradingBotGUI:
     message = self.chat_input.get()
     if not message:
       return
-    response = mock_chatgpt_response(message)
+    response = chatgpt_response(message)
 
     self.chat_output.config(state=tk.Normal)
     se;f.chat_output.insert(tk.END, f"You:{message}\n{response}\n\n")
