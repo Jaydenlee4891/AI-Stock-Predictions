@@ -27,7 +27,17 @@ def fetch_portfolio():
       'side': 'buy'
     })
   return portfolio
-      
+
+def fetch_open_orders():
+  orders = api.list_orders(status='open')
+  open_orders = []
+  for order in orders:
+    open_orders.append({
+      'symbol':order.symbol,
+      'qty':order.qty,
+      'limit_price':order.limit_price,
+      'side':'buy'
+    })
 
 def fetch_mock_api(symbol):
   return{
