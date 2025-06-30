@@ -8,8 +8,8 @@ import alpaca_trade_api as tradeapi
 
 DATA_FILE = "equities.json"
 
-key = "PKBOVFA2LQAB1QPTY5HZ"
-secret_key="U9FDVHrHWtKmPOuAunhXpFqb0mCfLjhzTtE7O7k0"
+key = ""
+secret_key=""
 BASE_URL="https://paper-api.alpaca.markets/"
 
 api = tradeapi.REST(key, secret_key, BASE_URL, api_version = "v2")
