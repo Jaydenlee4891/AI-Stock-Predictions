@@ -5,3 +5,6 @@ This project is also gonna build an UI so it is easier to control. I will be tes
 This project will also build a simple user interface using Tinker. 
 
 You will need to have acess to chatGPT premium to have access the secret API key and you will also need an Alpaca account to access the alpaca secret key and key.
+
+After you copy the key you can just copy into the code and you should have a working machine
+
